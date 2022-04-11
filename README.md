@@ -3,7 +3,7 @@ IK Analysis for Elasticsearch
 
 The IK Analysis plugin integrates Lucene IK analyzer (http://code.google.com/p/ik-analyzer/) into elasticsearch, support customized dictionary.
 
-Analyzer: `ik_smart` , `ik_max_word` , Tokenizer: `ik_smart` , `ik_max_word`
+Analyzer:  `ik_smart` , `ik_max_word` , Tokenizer: `ik_smart` , `ik_max_word`
 
 Versions
 --------
