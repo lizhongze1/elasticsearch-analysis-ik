@@ -7,7 +7,7 @@
     <includeBaseDirectory>false</includeBaseDirectory>
     <fileSets>
         <fileSet>
-        <directory>${project.basedir}/config</directory>
+            <directory>${project.basedir}/config</directory>
             <outputDirectory>config</outputDirectory>
         </fileSet>
     </fileSets>
@@ -39,6 +39,7 @@
             <useTransitiveFiltering>true</useTransitiveFiltering>
             <includes>
                 <include>org.apache.httpcomponents:httpclient</include>
+                <include>mysql:mysql-connector-java</include>
             </includes>
         </dependencySet>
     </dependencySets>
