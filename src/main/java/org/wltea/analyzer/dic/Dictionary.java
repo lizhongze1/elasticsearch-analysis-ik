@@ -151,7 +151,7 @@ public class Dictionary {
                     singleton.loadSuffixDict();
                     singleton.loadPrepDict();
                     singleton.loadStopWordDict();
-
+                    pool.execute(() -> new HotDictReloadThread().initial());
                     if (cfg.isEnableRemoteDict()) {
                         // 建立监控线程
                         for (String location : singleton.getRemoteExtDictionarys()) {
@@ -389,6 +389,8 @@ public class Dictionary {
         this.loadExtDict();
         // 加载远程自定义词库
         this.loadRemoteExtDict();
+        //数据库扩展词
+        this.loadMySQLExtDict();
     }
 
     /**
@@ -527,6 +529,7 @@ public class Dictionary {
                 }
             }
         }
+        this.loadMySQLStopwordDict();
 
     }
 
@@ -568,7 +571,6 @@ public class Dictionary {
         tmpDict.loadStopWordDict();
         _MainDict = tmpDict._MainDict;
         _StopWords = tmpDict._StopWords;
-        pool.execute(() -> new HotDictReloadThread().initial());
         logger.info("重新加载词典完毕...");
     }
 

@@ -40,6 +40,8 @@
             <includes>
                 <include>org.apache.httpcomponents:httpclient</include>
                 <include>mysql:mysql-connector-java</include>
+                <include>com.alibaba:fastjson</include>
+
             </includes>
         </dependencySet>
     </dependencySets>
