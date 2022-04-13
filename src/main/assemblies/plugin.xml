@@ -19,6 +19,11 @@
             <filtered>true</filtered>
         </file>
         <file>
+            <source>${project.basedir}/src/main/resources/jdbc-reload.properties</source>
+            <outputDirectory>config</outputDirectory>
+            <filtered>true</filtered>
+        </file>
+        <file>
             <source>${project.basedir}/src/main/resources/plugin-security.policy</source>
             <outputDirectory/>
             <filtered>true</filtered>
@@ -40,6 +45,7 @@
             <includes>
                 <include>org.apache.httpcomponents:httpclient</include>
                 <include>mysql:mysql-connector-java</include>
+                <include>com.alibaba:fastjson</include>
             </includes>
         </dependencySet>
     </dependencySets>
