@@ -97,6 +97,8 @@ public class Dictionary {
     private Properties props;
 
     private Dictionary(Configuration cfg) {
+
+
         this.configuration = cfg;
         this.props = new Properties();
         this.conf_dir = cfg.getEnvironment().configFile().resolve(AnalysisIkPlugin.PLUGIN_NAME);
