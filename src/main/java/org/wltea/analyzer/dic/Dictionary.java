@@ -390,7 +390,11 @@ public class Dictionary {
         // 加载远程自定义词库
         this.loadRemoteExtDict();
         //数据库扩展词
-        this.loadMySQLExtDict();
+        SpecialPermission.check();
+        AccessController.doPrivileged((PrivilegedAction<Void>) () -> {
+            this.loadMySQLExtDict();
+            return null;
+        });
     }
 
     /**
@@ -529,7 +533,12 @@ public class Dictionary {
                 }
             }
         }
-        this.loadMySQLStopwordDict();
+
+        SpecialPermission.check();
+        AccessController.doPrivileged((PrivilegedAction<Void>) () -> {
+            this.loadMySQLStopwordDict();
+            return null;
+        });
 
     }
 
@@ -596,7 +605,8 @@ public class Dictionary {
             }
 
             logger.info("[==========]query hot dict from mysql, " + props.getProperty("jdbc.reload.sql") + "......");
-//       Class.forName(props.getProperty("jdbc.className"));
+            Class.forName(props.getProperty("jdbc.className"));
+            //Class.forName("com.mysql.jdbc.Driver");
             conn = DriverManager.getConnection(
                     props.getProperty("jdbc.url"),
                     props.getProperty("jdbc.user"),
@@ -660,7 +670,7 @@ public class Dictionary {
                 logger.info("[==========]" + key + "=" + props.getProperty(String.valueOf(key)));
             }
             logger.info("[==========]query hot stopword dict from mysql, " + props.getProperty("jdbc.reload.stopword.sql") + "......");
-//       Class.forName(props.getProperty("jdbc.className"));
+            Class.forName(props.getProperty("jdbc.className"));
             conn = DriverManager.getConnection(
                     props.getProperty("jdbc.url"),
                     props.getProperty("jdbc.user"),
