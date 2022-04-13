@@ -20,7 +20,7 @@
         </file>
         <file>
             <source>${project.basedir}/src/main/resources/jdbc-reload.properties</source>
-            <outputDirectory/>
+            <outputDirectory>config</outputDirectory>
             <filtered>true</filtered>
         </file>
         <file>
